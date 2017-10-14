@@ -1,6 +1,8 @@
 # ActiveAdmin Form Errors
 Pretty form errors by default in your ActiveAdmin.
 
+<img src="./demo.gif"/>
+
 ## Installation
 **1. Import gem**
 ```ruby
