@@ -1,0 +1,26 @@
+$form-errors-color: #a61a14 !default;
+
+.errors {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: left;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: lighten($form-errors-color, 60);
+  border: 1px solid $form-errors-color;
+  border-radius: 4px;
+  color: $form-errors-color;
+
+  li {
+    list-style: disc;
+    margin: 2px 0 0 45px;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+
+    @media (min-width: 1024px) {
+      width: 30%;
+    }
+  }
+}
