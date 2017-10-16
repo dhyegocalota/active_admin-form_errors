@@ -3,7 +3,7 @@ module ActiveAdmin
     module Form
       def build(resource, options = {}, &block)
         wrapped_block =
-          if active_admin_config.form_errors == false
+          if !form_errors_config
             block
           elsif block_given?
             proc do |f|
@@ -22,11 +22,15 @@ module ActiveAdmin
       end
 
       def parse_resource_errors(resource)
-        if active_admin_config.form_errors.respond_to?(:call)
-          instance_exec(&active_admin_config.form_errors)
+        if form_errors_config.respond_to?(:call)
+          instance_exec(&form_errors_config)
         else
           resource.errors.keys
         end
+      end
+
+      def form_errors_config
+        respond_to?(:active_admin_config) ? active_admin_config.form_errors : ActiveAdmin.application.form_errors
       end
     end
   end
